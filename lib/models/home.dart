@@ -91,6 +91,10 @@ class HomeState extends State<Home> {
               var item =
                 await navigateToEntryForm(context, this.itemList[index]);
                 //TODO 4 Panggil Fungsi untuk Edit data
+                int result = await dbHelper.update(item);
+                if (result > 0){
+                  updateListView();
+                }
             },
           ),
         );
