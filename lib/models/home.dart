@@ -76,13 +76,14 @@ class HomeState extends State<Home> {
               this.itemList[index].name,
               style: textStyle,
             ),
-            subtitle: Text(
-              "Harga: "+
-              this.itemList[index].price.toString() +
-              " Stok: "+
-              this.itemList[index].stock.toString() +
-              " Kode: "+
-              this.itemList[index].kode),
+            subtitle: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children:[
+                Text("Harga: "+this.itemList[index].price.toString()),
+                Text("Stok: "+this.itemList[index].stock.toString()),
+                Text("Kode: "+ this.itemList[index].kode),
+              ]
+            ),
             trailing: GestureDetector(
               child: Icon(Icons.delete),
               onTap: () async {
